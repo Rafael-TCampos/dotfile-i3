@@ -207,7 +207,7 @@ gaps outer 1
 #Border
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
-client.focused #ffffff #ffffff #ffffff #ffffff   #ffffff
+client.focused #b8860b #b8860b #b8860b #b8860b   #b8860b
 # Carregamento Polybar
 #exec --no-startup-id $HOME/.config/polybar/launch.sh --panels &
 
