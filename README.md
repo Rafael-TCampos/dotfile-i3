@@ -1,18 +1,1 @@
-# dotfile-i3
-
-
-
-
-
-
-
-
-        
-
- 
-
-
-
-
-
-
+# Meu Arquivo README
