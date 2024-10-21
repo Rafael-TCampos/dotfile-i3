@@ -188,7 +188,15 @@ bindsym $mod+r mode "resize"
 
  
     
-#bar {}
+bar {
+     status_command i3status
+     mode hide
+     position top
+     tray_output none
+     font pango:JetBrains Mono
+     separator_symbol “|”
+
+}
 
  
 
@@ -201,7 +209,8 @@ gaps outer 1
 
 #Border
 for_window [class="^.*"] border pixel 1
-new_window 1pixel
+client.focused #fff  #fff  #fff  #fff   #fff
+
 # Carregamento Polybar
 #exec --no-startup-id $HOME/.config/polybar/launch.sh --panels &
 
@@ -216,9 +225,9 @@ exec --no-startup-id nitrogen --restore
 
 
 # Display Resolution
-exec_always xrandr --output VGA-1-1 --auto --right-of HDMI-1
+exec_always ~/.screenlayout/dual_monitor.sh
 
 # Meus Atalhos
 bindsym $mod+i exec firefox
-bindsym $mod+g exec google-chrome
+bindsym $mod+g exec google-chrome-stable
 bindsym $mod+t exec thunar
