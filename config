@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMono Nerd Font Medium 8
+font pango:Font Awesome 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -114,8 +114,8 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
+set $ws1 "1: Terminal"
+set $ws2 "2: Firefox"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -189,19 +189,15 @@ bindsym $mod+r mode "resize"
  
     
 bar {
-     status_command i3status
-     mode hide
-     position top
-     tray_output none
-     font pango:JetBrains Mono
-     separator_symbol “|”
-
+   status_command i3status
+   mode hide
+   position top
+   tray_output none
+   font pango:Font Awesome 10
+   separator_symbol |
 }
 
  
-
-
-
 
 #Gaps
 gaps inner 10
@@ -209,7 +205,7 @@ gaps outer 1
 
 #Border
 for_window [class="^.*"] border pixel 1
-client.focused #fff  #fff  #fff  #fff   #fff
+client.focused #fff #fff #fff #fff   #fff
 
 # Carregamento Polybar
 #exec --no-startup-id $HOME/.config/polybar/launch.sh --panels &
@@ -220,8 +216,10 @@ exec --no-startup-id picom -b &
 #Flameshot
 bindsym $mod+p exec --no-startup-id flameshot gui -p ~/screenshots
 
-# Display Walpaper
+
+#Inicia com i3
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id kitty
 
 
 # Display Resolution
@@ -231,3 +229,11 @@ exec_always ~/.screenlayout/dual_monitor.sh
 bindsym $mod+i exec firefox
 bindsym $mod+g exec google-chrome-stable
 bindsym $mod+t exec thunar
+
+
+# Atalho para tela bloqueio
+bindsym $mod+x exec /home/rafael/.config/scripts/lock
+
+#Alocar aplicativos na barra
+for_window [class="kitty"] move to workspace $ws1
+for_window [class="firefox"] move to workspace $ws2
