@@ -216,6 +216,8 @@ exec --no-startup-id picom -b &
 #Flameshot
 bindsym $mod+p exec --no-startup-id flameshot gui -p ~/screenshots
 
+#Layout teclado
+exec --no-startup-id setxkbmap -layout br -variant intl
 
 #Inicia com i3
 exec --no-startup-id nitrogen --restore
