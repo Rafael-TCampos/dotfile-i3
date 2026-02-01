@@ -1,4 +1,4 @@
-# Dotfiles do Rafael
+# Dotfiles do i3wm
 
 Meus arquivos de configuração do i3wm, terminal e outros programas que uso no Linux Mint.
 
