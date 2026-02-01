@@ -1,0 +1,15 @@
+[font]
+size = 12
+[font.normal]
+family = "MesloLGS NF"
+style = "Regular"
+
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/dracula.toml"
+]
+
+
