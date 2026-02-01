@@ -15,7 +15,6 @@ Meus arquivos de configuração do i3wm, terminal e outros programas que uso no 
 - **Thunar** - gerenciador de arquivos
 - **Pavucontrol** - controle de áudio
 - **Nerd Fonts** - fontes para ícones
-- **Ls++** - icones do terminal
 - **Rofi** - lancador de janela de apps 
 - **Arandr** - gerenciador de monitor
 - **Feh** -  para wallpapers
