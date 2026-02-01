@@ -7,6 +7,9 @@ style = "Regular"
 [cursor]
 style = { shape = "Beam", blinking = "Always" }
 
-
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/dracula.toml"
+]
 
 
