@@ -27,26 +27,51 @@ dotfile-i3/
 ├─ i3/ # config do i3
 ├─ kitty/ # configs do Kitty
 ├─ picom.conf # config do Picom
+├─ polybar/ # config da Polybar
 ├─ .zshrc # aliases e configuração do shell
+├─ fonts/ # Nerd Fonts
+├─ setup.sh # script de instalação automática
 ├─ README.md # este arquivo
 
 
 ---
 
-## ⚡ Instalação rápida
 
-1. Clonar o repositório:
+## ⚡ Instalação rápida em outro PC
+
+1. **Clonar o repositório:**
 
 ```bash
 git clone https://github.com/Rafael-TCampos/dotfile-i3.git ~/dotfiles
 
-## ⚡ Criar symlinks para usar as configs
-
-ln -s ~/dotfiles/i3/config ~/.config/i3/config
-ln -s ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
-ln -s ~/dotfiles/picom.conf ~/.config/picom/picom.conf
-ln -s ~/dotfiles/.zshrc ~/.zshrc
 
 
 
+## ⚡ Rodar o script de instalacao
+cd ~/dotfiles
+./setup.sh
 
+
+O setup.sh vai:
+
+Instalar programas essenciais (i3, Polybar, Picom, Kitty, Alacritty, ls++, Zsh, Starship, etc.)
+
+Copiar todas as configs e criar os symlinks automaticamente
+
+Instalar Nerd Fonts e atualizar cache de fontes
+
+Deixar seu ambiente pronto para uso
+
+
+## ⚡ Observacoes
+
+Após rodar o script, reinicie o i3 (Mod+Shift+R) para aplicar a nova configuração.
+
+Abra um novo terminal para aplicar o Zsh e o Starship.
+
+Se quiser atualizar os dotfiles no futuro, basta entrar no diretório e fazer
+
+
+cd ~/dotfiles
+git pull origin main
+./setup.sh
