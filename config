@@ -52,7 +52,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -190,18 +190,23 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 bar {
-    output primary
-    font pango: Inconsolata for Powerline 12
+   
+    font pango: Inconsolata for Powerline 10
     position top
 
-    status_command ~/.config/i3/bumblebee-status/bumblebee-status \
-        -t iceberg-rainbow \
-        -m title cpu pipewire datetime system \
-        -p datetime.format="%d %b %Y, %a %H:%M" \
-        -p system.shutdown="systemctl poweroff" \
-        -p system.reboot="systemctl reboot" \
-        -p system.suspend="systemctl suspend"
-
+     status_command python3 ~/dotfile-i3/bumblebee-status/bumblebee-status \
+    -t iceberg-rainbow \
+    -m title cpu pipewire datetime cpu_temp_color \
+    -p datetime.format="%d %b %Y, %a %H:%M" \
+     -p datetime.format="%d %b %Y, %a %H:%M" \
+    -p cpu.format="{:.0f}% " \
+    -p pipewire.format="{:.0}% " \
+    -p cpu_temp_color.script="~/dotfile-i3/bumblebee-status/modules/cpu_temp_color.py"   
+   
+   
+          
+       
+       
     colors {
         background #111118
         statusline #ffffff
@@ -231,7 +236,7 @@ exec --no-startup-id picom -b
 bindsym $mod+p exec --no-startup-id flameshot gui -p ~/screenshots
 
 #Layout teclado
-exec --no-startup-id setxkbmap -layout br -variant intl
+exec --no-startup-id setxkbmap -layout br 
 
 #Inicia com i3
 #exec --no-startup-id kitty
