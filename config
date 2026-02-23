@@ -12,7 +12,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Font Awesome 10
+font pango:FontAwesome 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -191,12 +191,12 @@ bindsym $mod+r mode "resize"
 
 bar {
    
-    font pango: Inconsolata for Powerline 10
+    font pango: Inconsolata for Powerline 12
     position top
-
+    
      status_command ~/dotfile-i3/bumblebee-status/bumblebee-status \
     -t iceberg-rainbow \
-    -m title cpu pipewire datetime sensors \
+    -m title cpu  pipewire  datetime  sensors \
     -p datetime.format="%d %b %Y, %a %H:%M" \
     -p datetime.format="%d %b %Y, %a %H:%M" \
     -p cpu.format="{:.0f}% " \
