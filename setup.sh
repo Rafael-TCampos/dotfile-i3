@@ -1,54 +1,29 @@
 #!/bin/bash
-set -e
 
-echo "=== Atualizando sistema ==="
-sudo apt update && sudo apt upgrade -y
+# 1. Atualizar o sistema
+sudo apt update
 
-echo "=== Instalando pacotes essenciais ==="
-sudo apt install -y i3 polybar picom kitty alacritty thunar pavucontrol zsh git cmake build-essential wget fonts-powerline
+# 2. Instalar programas essenciais e o FALKON (navegador leve)
+sudo apt install -y i3 rofi htop alacritty picom pipewire \
+                    fonts-font-awesome wget git python3-pip \
+                    falkon lm-sensors
 
-echo "=== Instalando ls++ ==="
-if ! command -v ls++ &> /dev/null; then
-    sudo wget -q4 https://github.com/terroo/lspp/releases/download/v0.0.2/ls++ -O /usr/local/bin/ls++
-    sudo chmod +x /usr/local/bin/ls++
+# 3. Instalar o Google Chrome (para desenvolvimento)
+if ! command -v google-chrome-stable &> /dev/null; then
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo apt install -y ./google-chrome-stable_current_amd64.deb
+    rm ./google-chrome-stable_current_amd64.deb
 fi
 
-echo "=== Clonando/Atualizando dotfiles ==="
-DOTFILES=~/dotfiles
-if [ ! -d "$DOTFILES" ]; then
-    git clone https://github.com/Rafael-TCampos/dotfile-i3.git "$DOTFILES"
-else
-    cd "$DOTFILES"
-    git pull origin main
+# 4. Configurar o Link Simbólico do i3 (caso rode em outro PC no futuro)
+mkdir -p ~/.config
+if [ ! -L ~/.config/i3 ]; then
+    rm -rf ~/.config/i3
+    ln -s ~/dotfile-i3 ~/.config/i3
+    echo "Link simbólico do i3 criado com sucesso!"
 fi
 
-echo "=== Criando symlinks das configurações ==="
+# 5. Detectar sensores de temperatura (Samsung 300E)
+sudo sensors-detect --auto
 
-# i3
-mkdir -p ~/.config/i3
-ln -sf "$DOTFILES/config" ~/.config/i3/config
-
-# Kitty
-mkdir -p ~/.config/kitty
-ln -sf "$DOTFILES/kitty/kitty.conf" ~/.config/kitty/kitty.conf
-
-# Picom
-mkdir -p ~/.config/picom
-ln -sf "$DOTFILES/picom.conf" ~/.config/picom/picom.conf
-
-# Polybar
-mkdir -p ~/.config/polybar
-ln -sf "$DOTFILES/polybar/config.ini" ~/.config/polybar/config.ini
-
-# Zsh
-ln -sf "$DOTFILES/.zshrc" ~/.zshrc
-
-echo "=== Instalando Nerd Fonts ==="
-mkdir -p ~/.local/share/fonts
-if [ -d "$DOTFILES/fonts" ]; then
-    cp "$DOTFILES/fonts/"*.ttf ~/.local/share/fonts/
-    fc-cache -fv
-fi
-
-echo "=== Finalizando ==="
-echo "Instalação completa! Reinicie o i3 (Mod+Shift+R) e abra um novo terminal para aplicar o Zsh e Starship."
+echo "Setup concluído! Reinicie o i3 (Mod+Shift+R) para ver as mudanças."
