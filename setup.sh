@@ -7,7 +7,7 @@ sudo apt update
 sudo apt install -y i3 rofi htop alacritty picom pipewire \
                     fonts-font-awesome wget git python3-pip \
                     falkon lm-sensors
-
+                    brightnessctl
 # 3. Instalar o Google Chrome (para desenvolvimento)
 if ! command -v google-chrome-stable &> /dev/null; then
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
