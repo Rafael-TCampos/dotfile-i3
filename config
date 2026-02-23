@@ -194,14 +194,14 @@ bar {
     font pango: Inconsolata for Powerline 10
     position top
 
-     status_command python3 ~/dotfile-i3/bumblebee-status/bumblebee-status \
+     status_command ~/dotfile-i3/bumblebee-status/bumblebee-status \
     -t iceberg-rainbow \
-    -m title cpu pipewire datetime cpu_temp_color \
+    -m title cpu pipewire datetime sensors \
     -p datetime.format="%d %b %Y, %a %H:%M" \
-     -p datetime.format="%d %b %Y, %a %H:%M" \
+    -p datetime.format="%d %b %Y, %a %H:%M" \
     -p cpu.format="{:.0f}% " \
     -p pipewire.format="{:.0}% " \
-    -p cpu_temp_color.script="~/dotfile-i3/bumblebee-status/modules/cpu_temp_color.py"   
+      
    
    
           
